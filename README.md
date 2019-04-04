@@ -12,18 +12,18 @@
 * 疑问：修改 index.html 文件后，为什么没有更新？请告知原因。
 
 ### 将 Vue 单页面应用项目，运行在docker的nginx容器中，步骤：
-1.安装docker mac版
-2.下载nginx镜像（1.15.8：是具体的nignx版本；默认从 https://hub.docker.com/ 下载镜像）：
+1. 安装docker mac版
+2. 下载nginx镜像（1.15.8：是具体的nignx版本；默认从 https://hub.docker.com/ 下载镜像）：
 ```
 docker pull nginx:1.15.8
 ```
-3.运行命令打包项目：`npm run build`
-4.编写nginx的配置文件（文件在本项目中位置：`nginx/default.conf`）
-5.在项目目录下运行 docker 命令：
+3. 运行命令打包项目：`npm run build`
+4. 编写nginx的配置文件（文件在本项目中位置：`nginx/default.conf`）
+5. 在项目目录下运行 docker 命令：
 ```
 docker run -p 9081:80 -v $PWD/dist/:/usr/share/nginx/dist/ -v $PWD/nginx/default.conf:/etc/nginx/conf.d/default.conf -d nginx:1.15.8
 ```
-6.宿主机（就是本机）访问项目网址：[http://localhost:9081/](http://localhost:9081/)
+6. 宿主机（就是本机）访问项目网址：[http://localhost:9081/](http://localhost:9081/)
 
 ## Project setup
 ```
