@@ -8,7 +8,7 @@
         add_header Cache-Control "no-cache, no-store";
     }
 ```
-2. 进入docker容器（`docker exec -it <容器名或容器id> bash`）后，修改`/usr/share/nginx/dist/index.html`文件，点击切换前端页面路由，index.html 并没有更新。
+2. 修改项目中`dist/index.html`文件（容器中也会同步修改），点击切换前端页面路由，index.html 并没有更新；刷新后，才会更新。
 * 疑问：修改 index.html 文件后，为什么没有更新？请告知原因。
 
 ### 将 Vue 单页面应用项目，运行在docker的nginx容器中，步骤：
@@ -24,11 +24,6 @@ docker pull nginx:1.15.8
 docker run -p 9081:80 -v $PWD/dist/:/usr/share/nginx/dist/ -v $PWD/nginx/default.conf:/etc/nginx/conf.d/default.conf -d nginx:1.15.8
 ```
 6.宿主机（就是本机）访问项目网址：[http://localhost:9081/](http://localhost:9081/)
-
-### 基于 debian 操作系统的 docker 镜像，安装 vim，步骤：
-1. `apt-get update`
-2. `apt-get install vim`
-* 说明：这个 nginx docker 镜像需要安装下 vim。
 
 ## Project setup
 ```
